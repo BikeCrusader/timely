@@ -8,3 +8,21 @@
 - The app displays and updates the result automatically
 
 
+## Specifications
+
+- Use Svelte
+- Should be able to change origin time
+- Take times as float, allow negatives
+
+
+### Graph Feature
+- Graph features shows how the intervals bring you forward and backwards in time
+- Go from left to right, showing time at each interval relative to the base interval as 
+a horizontal line
+
+### Style
+- Use a clock icon
+
+
+
+
