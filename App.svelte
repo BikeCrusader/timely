@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import Clock from './Clock.svelte';
 
   const UNITS = ['seconds', 'minutes', 'hours', 'days', 'years'];
 
@@ -109,6 +110,23 @@
     <input id="origin" type="time" step="1" bind:value={originTime} />
   </section>
 
+  <section class="card clocks-card">
+    <div class="clocks-header">Clocks</div>
+    <div class="clocks-row">
+      <Clock
+        totalSeconds={originTotalSeconds}
+        label="Origin"
+        interactive={true}
+        on:timechange={(e) => originTime = e.detail}
+      />
+      <Clock
+        totalSeconds={resultTotalSeconds}
+        label="Result"
+        interactive={false}
+      />
+    </div>
+  </section>
+
   <section class="card intervals">
     <div class="intervals-header">
       <span>Intervals</span>
@@ -213,7 +231,7 @@
 
   main {
     width: 100%;
-    max-width: 480px;
+    max-width: 560px;
   }
 
   h1 {
@@ -338,6 +356,27 @@
     transition: color 0.15s;
   }
   .remove-btn:hover { color: #e53e3e; }
+
+  /* Clocks */
+  .clocks-card {
+    padding: 1.25rem 1rem 1.25rem;
+  }
+
+  .clocks-header {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #718096;
+    margin-bottom: 0.75rem;
+  }
+
+  .clocks-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 
   /* Graph */
   .graph-card {
